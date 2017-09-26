@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 import os;
+import subprocess;
 
 app = Flask(__name__)
 
@@ -14,8 +15,9 @@ def index():
 
 @app.route('/script')
 def script():
-    os.system("dir")
-    return render_template('index.html')
+    # os.system("dir")
+    test_ls = subprocess.check_output(['ls'])
+    return test_ls
 
 @app.route('/script2')
 def script2():
