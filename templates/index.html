@@ -1,8 +1,4 @@
-<!doctype html>
-
-
-
-{% extends "bootstrap/base.html" %} {% block content %}
+<!doctype html> {% extends "bootstrap/base.html" %} {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
 <div class="container">
 
@@ -22,29 +18,31 @@
                   <th>Command Name</th>
                   <th>Linux Command Line</th>
                   <th>Execute Button</th>
-                  <th>Copy to Clipboard</th>
+                  <!-- <th>Copy to Clipboard</th> -->
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>View all file</td>
-                  <td>
-                    <div style="background-color:black;color:white"  id="form_one">
-                      dir
-                    </div>
-                  </td>
-                  <td>
-                    <form action="/script">
-                        <input type="submit" value="Test Button" />
-                    </form>
-                  </td>
-                  <td>
-                    <button class="btn" data-clipboard-target="#form_one">
+                {% for item in output_value %}
+                <form action="/execute" method="get" style="text-align:center">
+                  <tr>
+                    <td>{{item[0]}}</td>
+                    <td>
+                        <textarea  type="search" name="command" style="text-align:center;border:none;border-color: Transparent;resize:none " readonly>{{item[1]}}</textarea>
+<!-- style="background-color:black;color:white;text-align:center"  -->
+                    </td>
+                    <td>
+                      <input type="submit" value="Execute" />
+                    </td>
+
+                  </form>
+                    <!-- <td>
+                      <button class="btn" data-clipboard-text={{item[1]}}>
                         Copy !
-                    </button>
-                  </td>
-                </tr>
-                <tr>
+                      </button>
+                    </td> -->
+                  </tr>
+                {% endfor %}
+                <!-- <tr>
                   <td>Create the "test2"</td>
                   <td>
                     <div style="background-color:black;color:white"  id="form_two">
@@ -61,7 +59,7 @@
                         Copy !
                     </button>
                   </td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
 
@@ -73,12 +71,6 @@
     </div>
   </div>
   <script>
-      var clipboard = new Clipboard('.btn');
-      clipboard.on('success', function(e) {
-          console.log(e);
-      });
-      clipboard.on('error', function(e) {
-          console.log(e);
-      });
-      </script>
+    var clipboard = new Clipboard('.btn');
+  </script>
   {% endblock %}

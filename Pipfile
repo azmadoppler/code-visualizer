@@ -10,3 +10,4 @@ verify_ssl = true
 flask = "*"
 "flask-bootstrap" = "*"
 gunicorn = "*"
+numpy = "*"

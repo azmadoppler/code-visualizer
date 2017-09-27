@@ -1,0 +1,16 @@
+<!doctype html> {% extends "bootstrap/base.html" %} {% block content %}
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+<div class="container" style="text-align:center">
+  <h2>You Command : <b>{{command}}</b> is Execute Successfully</h1>
+  <!-- <h2>You Command Execute Successfully</h2> -->
+  <h4>Here is the result : {{execution}}</h4>
+  <a type="button" href="/"><h3>Return To Control Panel</h3></a>
+
+  <b-jumbotron header="You Command is Execute Successfully" lead={{command}} >
+  <p>Here is the result : {{execution}}</p>
+  <b-btn variant="primary" href="/">Return To Control Panel</b-btn>
+</b-jumbotron>
+</div>
+<script>
+</script>
+{% endblock %}
