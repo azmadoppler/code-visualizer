@@ -1,3 +1,5 @@
-View_all_file,dir
-Create_the_test2,mkdir test2
-Create_the_test3,mkdir test3
+View all file,dir
+Create the test2,mkdir test2
+Create the test3,mkdir test3
+Create_more_directory,mkdir test4
+Check python version, python --version
